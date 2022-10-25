@@ -7,7 +7,7 @@ import axios from 'axios'
 
 export function getAllCountries() {
   return async (dispatch) => {
-    const countries = await axios.get('http://localhost:3001/countries')
+    const countries = await axios.get('http://api-country-catearacil.vercel.app//countries')
     return dispatch({
       type: 'GET_COUNTRIES',
       payload: countries.data,
@@ -20,7 +20,7 @@ export function getCountriesByName(name) {
   return async (dispatch) => {
     try {
       const countriesByName = await axios.get(
-        `http://localhost:3001/countries?name=${name}`
+        `http://api-country-catearacil.vercel.app//countries?name=${name}`
       )
       return dispatch({
         type: 'GET_COUNTRIES_BY_NAME',
@@ -35,7 +35,7 @@ export function getCountriesByName(name) {
 export function getCountryDetails(id) {
   return async (dispatch) => {
     try {
-      const details = await axios.get(`http://localhost:3001/countries/${id}`)
+      const details = await axios.get(`http://api-country-catearacil.vercel.app//countries/${id}`)
       return dispatch({
         type: 'GET_COUNTRY_DETAILS',
         payload: details.data,
@@ -49,7 +49,7 @@ export function getCountryDetails(id) {
 export function createActivity(details) {
   return async function () {
     const newActivity = await axios.post(
-      'http://localhost:3001/activity',
+      'http://api-country-catearacil.vercel.app//activity',
       details
     )
     console.log(newActivity)
